@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="css3.css">
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="film-strip">
+        <div class="film-container">
+            <img src="all.jpg" alt="Image 1">
+            <img src="all2.jpg" alt="Image 2">
+            <img src="cheers.jpg" alt="Image 3">
+            <img src="cheers2.jpg" alt="Image 4">
+            <img src="cheers3.jpg" alt="Image 5">
+            <img src="dg.jpg" alt="Image 6">
+        </div>
+    </div>
+    <script>
+
+        const filmContainer = document.querySelector('.film-container');
+        const images = document.querySelectorAll('.film-container img');
+
+        // نسخ الصور لتكرار الشريط
+        images.forEach((img) => {
+            const clone = img.cloneNode(true);
+            filmContainer.appendChild(clone);
+        });
+
+ </script>
+
+
+
+
+    <div>
+        <section id="characters">
+            <h2>الشخصيات</h2>
+            <table class="characters-table">
+                <tr>
+                    <th>الاسم</th>
+                    <th>القوة</th>
+                    <th>الرتبة</th>
+                </tr>
+                <tr>
+                    <td>أوسامو دازاي</td>
+                    <td>No Longer Human</td>
+                    <td>عضو رئيسي</td>
+                </tr>
+                <tr>
+                    <td>أتسوشي ناكاجيما</td>
+                    <td>Beast Beneath the Moonlight</td>
+                    <td>عضو جديد</td>
+                </tr>
+            </table>
+        </section>
+
+    </div>
+    <div>
+        <section id="promo">
+            <h2>فيديو ترويجي</h2>
+            <video controls width="600">
+                <source src="promo.mp4" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+        </section>
+
+    </div>
+    <div>
+
+        <nav class="navigation">
+            <button onclick="scrollToSection('characters')">الشخصيات</button>
+            <button onclick="scrollToSection('story')">القصة</button>
+            <button onclick="scrollToSection('quotes')">الاقتباسات</button>
+        </nav>
+        <script>
+            function scrollToSection(id) {
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+
+    </div>
+    <button onclick="playSound()">استمع للموسيقى</button>
+    <audio id="music" src="music.mp3"></audio>
+    <script>
+        function playSound() {
+            const music = document.getElementById('music');
+            music.play();
+        }
+    </script>
+
+
+
+</body>
+</html>
